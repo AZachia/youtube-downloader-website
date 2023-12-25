@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Downloader</title>
+    <style>
+        * {
+            margin: 0;
+            font-family: sans-serif;
+            border: 0;
+
+        }
+
+        body {
+            text-align: center;
+        }
+
+
+        input {
+            background-color: rgb(255, 255, 255);
+            color: black;
+            font-size: 1em;
+            border-radius: 10px;
+            padding: 10px;
+            border: #3498db 2px solid;
+            width: 40%;
+        }
+
+
+        h1 {
+            margin-top: 40px;
+        }
+
+        .clickable {
+            background-color: #3498db;
+            color: black;
+            border-radius: 10px;
+            font-size: 1em;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+
+        }
+
+        .clickable:hover {
+            background-color: #3daefa;
+        }
+
+        button {}
+
+        #response {
+            padding: 10px;
+            font-size: 1em;
+            font-weight: 600;
+            color: #081b28;
+        }
+
+        a {
+            display: none;
+            position: relative;
+            top: 30px;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Youtube Downloader</h1>
+    <br><br>
+    <input id="url" type="url" placeholder="URL">
+    <select id="format" class="clickable">
+        <option value="mp4">MP4</option>                   <option value="mp3">MP3</option>
+
+    </select>
+    <button onclick="download()" class="clickable">Convert</button>
+    <div id="response"> </div>
+
+    <a href="{{url_for('youtube_download')}}" class="clickable" id="download_button">Download</a>
+</body>
+
+
+<script>
+    const responseDiv = document.getElementById('response');
+    const downloadButton = document.getElementById('download_button');
+
+
+    function download() {
+        url = document.querySelector('#url').value;
+        if (url === '') {
+            responseDiv.innerHTML = 'Please enter a valid URL';
+        }
+
+        else {
+        
+        
+        responseDiv.innerHTML = 'Conversion'
+        fetch('{{url_for("youtube_process")}}?url=' + encodeURIComponent(url)+ '&format=' + encodeURIComponent(document.querySelector('#format').value))
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.status === 'ok') {
+                    downloadButton.href = "{{url_for('youtube_download')}}?name="+ encodeURIComponent(data.name);
+                    responseDiv.innerHTML = 'Files processed successfully.';
+                    downloadButton.style.display = 'inline-block';
+                    downloadButton.click();
+                    downloadButton.style.display = 'none';
+                } else if (data && data.status === 'error') {
+                    if (data.error === 'invalid_url') {
+                        responseDiv.innerHTML = 'Invalid URL';
+                    } else {
+                        responseDiv.innerHTML = 'Error during conversion. '+data.error;
+                    }
+                } else {
+                    responseDiv.innerHTML = 'Invalid response from the server.';
+                }
+            })}
+
+    }
+</script>
+
+</html>
