@@ -17,7 +17,7 @@ This project relies on the following dependencies:
 - **Flask:** A web framework for Python. Install it using ```pip install flask```
 - **pytube:** A lightweight, dependency-free Python library to download YouTube videos. Install it using ```pip install pytube```
   
-- **ffmpeg:** Required for converting audio and video formats. Install it based on your operating system. [ffmpg](https://www.ffmpeg.org/download.html)
+- **ffmpeg:** (only if you want mp3) Required for converting audio and video formats. Install it based on your operating system. [ffmpg](https://www.ffmpeg.org/download.html)
 
 Ensure all dependencies are installed before running the application.
 
