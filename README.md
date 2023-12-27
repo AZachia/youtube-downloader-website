@@ -47,6 +47,8 @@ The response is in JSON format and includes the following information:
 
 #### Example
 
+[https://tools.pythoneditor1.repl.co/api/yt/info?url=https%3A%2F%2Fyoutu.be%2FNrQkdDVupQE](https://tools.pythoneditor1.repl.co/api/yt/info?url=https%3A%2F%2Fyoutu.be%2FNrQkdDVupQE)
+
 ```json
 {
   "author": "GitHub",
