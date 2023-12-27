@@ -6,7 +6,7 @@ You can try it [here](https://tools.pythoneditor1.repl.co/youtube).
 
 ![screenshot](images/screenshot.png)
 
-Just paste the URL of the YouTube video and select the desired format. Make sure to have ffmpeg installed.
+Just paste the URL of the YouTube video and select the desired format. Make sure to have ffmpeg installed if you want to convert the vidéo in mp3.
 
 ## Dependencies
 
