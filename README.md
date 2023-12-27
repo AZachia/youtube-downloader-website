@@ -1,6 +1,6 @@
 # youtube-downloader-website
 
-Free Flask server to download YouTube videos and music directly from the browser.
+Flask server to download for free YouTube videos and music directly from the browser.
 
 You can try it [here](https://tools.pythoneditor1.repl.co/youtube).
 
