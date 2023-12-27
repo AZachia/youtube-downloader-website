@@ -62,3 +62,18 @@ The response is in JSON format and includes the following information:
 }
 ```
 
+example of use:
+
+```python
+
+import requests
+
+url = "https://tools.pythoneditor1.repl.co/api/yt/info"
+video_url = "https://youtu.be/NrQkdDVupQE"
+
+response = requests.get(url, params={"url": video_url})
+data = response.json()
+print(data)
+
+```
+
