@@ -21,3 +21,43 @@ This project relies on the following dependencies:
 
 Ensure all dependencies are installed before running the application.
 
+
+## API REST
+
+The application also provides a simple REST API for fetching information about YouTube videos. You can access it at:
+
+[https://tools.pythoneditor1.repl.co/api/yt/info](https://tools.pythoneditor1.repl.co/api/yt/info)
+
+
+
+#### Response
+
+The response is in JSON format and includes the following information:
+
+- `status`: Indicates the status of the request (`ok` or `error`).
+- `title`: Title of the YouTube video.
+- `views`: Number of views.
+- `author`: Author of the video.
+- `length`: Duration of the video.
+- `description`: Video description.
+- `thumbnail`: URL of the video thumbnail.
+- `publish_date`: Date of video publication.
+- `url`: URL to watch the video.
+- `rating`: Video rating.
+
+#### Example
+
+```json
+{
+  "status": "ok",
+  "title": "Example Video",
+  "views": 1000,
+  "author": "John Doe",
+  "length": "5:30",
+  "description": "A sample video description.",
+  "thumbnail": "https://example.com/thumbnail.jpg",
+  "publish_date": "2023-01-01",
+  "url": "https://www.youtube.com/watch?v=example",
+  "rating": 4.5
+}```
+
