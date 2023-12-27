@@ -59,5 +59,6 @@ The response is in JSON format and includes the following information:
   "publish_date": "2023-01-01",
   "url": "https://www.youtube.com/watch?v=example",
   "rating": 4.5
-}```
+}
+```
 
