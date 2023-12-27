@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template, jsonify, send_file
 import pytube
-import subprocess, os, shutil, requests
+import subprocess, os
 
 
 app = Flask(__name__)
@@ -13,19 +13,16 @@ def page_not_found(e):
 
 
 def mp4_to_mp3(input_path, output_path="output.mp3"):
+    """Convert mp4 to mp3 with FFmpeg"""
     subprocess.run(
         f"""ffmpeg -i "{input_path}" -y -codec:a libmp3lame -ac 2 -ar 44100 "{output_path}" """,
         shell=True)
     print('done')
 
 
-def rename(filepath: str):
-    newname = filepath.replace(' ', '_')
-    os.rename(filepath, newname)
-    return newname
-
 @app.route('/api/yt/info')
 def yt_info():
+    """Rest api for youtube"""
     url = request.args.get('url')
     print(url)
     try:
@@ -48,18 +45,17 @@ def yt_info():
 
 @app.route('/api/yt/download')
 def youtube_download():
+    """Download the file"""
     name = request.args.get('name')
     response = send_file(f"{name}", as_attachment=True)
     os.remove(f"{name}")
-    response.headers['Access-Control-Allow-Origin'] = '*'
-    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
-    response.headers[
-        'Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept'
+
     return response
 
 
 @app.route('/api/yt/process')
 def youtube_process():
+    """process the video"""
     url = request.args.get("url")
     filetype = request.args.get("format") or "mp4"
     print(url)
@@ -101,4 +97,5 @@ def index():
 
 
 if __name__ == '__main__':
+    #run the app
     app.run(host='0.0.0.0', port=81, debug=True)
