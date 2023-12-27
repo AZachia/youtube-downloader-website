@@ -49,16 +49,16 @@ The response is in JSON format and includes the following information:
 
 ```json
 {
+  "author": "GitHub",
+  "description": null,
+  "length": 2785,
+  "publish_date": "Wed, 08 Nov 2023 00:00:00 GMT",
+  "raiting": null,
   "status": "ok",
-  "title": "Example Video",
-  "views": 1000,
-  "author": "John Doe",
-  "length": "5:30",
-  "description": "A sample video description.",
-  "thumbnail": "https://example.com/thumbnail.jpg",
-  "publish_date": "2023-01-01",
-  "url": "https://www.youtube.com/watch?v=example",
-  "rating": 4.5
+  "thumbnail": "https://i.ytimg.com/vi/NrQkdDVupQE/hq720.jpg",
+  "title": "GitHub Universe 2023 opening keynote- Copilot in the Age of AI",
+  "url": "https://youtube.com/watch?v=NrQkdDVupQE",
+  "views": 280537
 }
 ```
 
