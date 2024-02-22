@@ -2,8 +2,6 @@
 
 Flask server to download for free YouTube videos and music directly from the browser.
 
-You can try it [here](https://tools.pythoneditor1.repl.co/youtube).
-
 
 
 ![screenshot](images/screenshot.png)
@@ -24,9 +22,7 @@ Ensure all dependencies are installed before running the application.
 
 ## API REST
 
-The application also provides a simple REST API for fetching information about YouTube videos. You can access it at:
-
-[https://tools.pythoneditor1.repl.co/api/yt/info](https://tools.pythoneditor1.repl.co/api/yt/info)
+The application also provides a simple REST API for fetching information about YouTube videos.
 
 
 
@@ -47,7 +43,7 @@ The response is in JSON format and includes the following information:
 
 #### Example
 
-[https://tools.pythoneditor1.repl.co/api/yt/info?url=https%3A%2F%2Fyoutu.be%2FNrQkdDVupQE](https://tools.pythoneditor1.repl.co/api/yt/info?url=https%3A%2F%2Fyoutu.be%2FNrQkdDVupQE)
+[/api/yt/info?url=https%3A%2F%2Fyoutu.be%2FNrQkdDVupQE](/api/yt/info?url=https%3A%2F%2Fyoutu.be%2FNrQkdDVupQE)
 
 ```json
 {
@@ -70,7 +66,7 @@ example of use:
 
 import requests
 
-url = "https://tools.pythoneditor1.repl.co/api/yt/info"
+url = "/api/yt/info"
 video_url = "https://youtu.be/NrQkdDVupQE"
 
 response = requests.get(url, params={"url": video_url})
